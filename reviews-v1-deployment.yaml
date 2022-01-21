@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: reviews-v1
   labels:
-    app: reviews
+    app: reviews  #EL SERVICE SE CONECTA CON ESTO
     version: v1
 spec:
   replicas: 1
@@ -14,7 +14,7 @@ spec:
   template:
     metadata:
       labels:
-        app: reviews
+        app: reviews #Y CON ESTO
         version: v1
     spec:
       containers:

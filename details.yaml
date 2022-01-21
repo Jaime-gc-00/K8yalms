@@ -1,5 +1,5 @@
 ##################################################################################################
-# Ratings service
+#   Details service
 ##################################################################################################
 apiVersion: v1
 kind: Service
@@ -13,26 +13,26 @@ spec:
   - port: 9080
     name: http
   selector:
-    app: details
+    app: details  ################   ESTO SE CONECTA CON...
 ---
+##################################################################################################
+#   Details deployment
+##################################################################################################
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: details-v1
   labels:
-    app: details
-    version: v1
+    app: details         ############# ... ESTO 
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: details
-      version: v1
   template:
     metadata:
       labels:
-        app: details
-        version: v1
+        app: details     ############# ... Y CON ESTO
     spec:
       containers:
       - name: details
@@ -42,4 +42,6 @@ spec:
         - containerPort: 9080
         securityContext:
           runAsUser: 1000
+        env:
+        - ENABLE_EXTERNAL_BOOK_SERVICES: true
 ---
