@@ -42,8 +42,6 @@ spec:
         - containerPort: 9080
         securityContext:
           runAsUser: 1000
-        env:
-        - GROUP_NUMBER: "E40"
 ---
 ##################################################################################################
 # Productpage IP externa
